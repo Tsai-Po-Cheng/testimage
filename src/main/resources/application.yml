@@ -1,0 +1,32 @@
+server:
+  port: 8080
+  servlet:
+    context-path: /middleware
+
+###############################################################################
+## Spring Related
+###############################################################################  
+spring:
+  profiles:
+    active:
+    - default
+  thymeleaf:
+    prefix: classpath:/templates/
+    cache: false
+  web:
+    resources:
+      static-locations: classpath:/static/
+      cache:
+        period: 0
+  jpa:
+    database-platform: org.hibernate.dialect.Oracle10gDialect
+  datasource:
+    url: jdbc:oracle:thin:@10.3.100.15:1521:ibank
+    username: IBANK
+    password: P@ssw0rd
+    driver-class-name: oracle.jdbc.driver.OracleDriver
+
+fido:
+  server:
+    url: "https://fidolab.apps.oc.webcomm.com.tw/identity-svr"
+  app-id: "https://fidolab.apps.oc.webcomm.com.tw/middleware/uaf/facets"
